@@ -23,7 +23,6 @@ overflow-x:hidden;
 }
 
 /* Animated Background */
-
 body::before{
 content:"";
 position:fixed;
@@ -34,6 +33,336 @@ radial-gradient(circle,#8b5e34 0%,transparent 18%),
 radial-gradient(circle,#ffd166 0%,transparent 10%),
 radial-gradient(circle,#2b1b10 0%,transparent 18%);
 background-size:320px 320px;
+animation:bgmove 40s linear infinite;
+opacity:.12;
+z-index:-2;
+}
+
+@keyframes bgmove{
+from{transform:translate(0,0);}
+to{transform:translate(-500px,-500px);}
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(15px);
+z-index:1000;
+}
+
+nav h2{
+color:#FFD166;
+font-size:22px;
+}
+
+nav div{
+display:flex;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+transition:.3s;
+font-size:15px;
+}
+
+nav a:hover{
+color:#FFD166;
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:120px 20px 60px;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80");
+background-size:cover;
+background-position:center;
+}
+
+.box{
+background:rgba(255,255,255,.08);
+padding:40px;
+border-radius:22px;
+backdrop-filter:blur(18px);
+box-shadow:0 0 40px rgba(255,193,7,.25);
+animation:float 4s ease-in-out infinite;
+max-width:700px;
+width:100%;
+}
+
+.hero h1{
+font-size:clamp(32px,5vw,65px);
+color:#FFD166;
+text-shadow:0 0 20px #ffb84d;
+}
+
+.hero p{
+margin:20px 0;
+font-size:clamp(14px,2vw,18px);
+line-height:1.7;
+}
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:14px 34px;
+background:linear-gradient(45deg,#ffb84d,#ff7b00);
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:bold;
+box-shadow:0 0 25px orange;
+transition:.3s;
+font-size:15px;
+}
+
+.btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px gold;
+}
+
+/* STEAM */
+.steam{
+position:absolute;
+width:8px;
+height:120px;
+background:linear-gradient(white,transparent);
+border-radius:50%;
+opacity:.18;
+animation:steam 4s infinite;
+}
+
+.s1{left:48%;top:60%;}
+.s2{left:50%;top:60%;animation-delay:1s;}
+.s3{left:52%;top:60%;animation-delay:2s;}
+
+@keyframes steam{
+0%{transform:translateY(0) scale(.8);opacity:.2;}
+100%{transform:translateY(-140px) scale(2);opacity:0;}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+/* SECTIONS */
+section{
+padding:80px 8%;
+}
+
+.title{
+text-align:center;
+font-size:clamp(24px,4vw,40px);
+color:#FFD166;
+margin-bottom:40px;
+}
+
+/* GRID */
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.06);
+padding:25px;
+border-radius:18px;
+backdrop-filter:blur(12px);
+transition:.3s;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(255,193,7,.35);
+}
+
+.card h3{
+color:#FFD166;
+margin-bottom:10px;
+font-size:18px;
+}
+
+.card p{
+font-size:14px;
+line-height:1.6;
+}
+
+/* CONTACT */
+.contact{
+text-align:center;
+background:#181818;
+padding:80px 8%;
+}
+
+.contact p{
+margin:10px 0;
+font-size:15px;
+}
+
+/* FOOTER */
+footer{
+background:black;
+padding:18px;
+text-align:center;
+color:#888;
+font-size:13px;
+}
+
+/* RESPONSIVE NAV */
+@media(max-width:768px){
+
+nav div{
+display:none;
+}
+
+nav{
+padding:14px 6%;
+}
+
+.hero{
+padding-top:140px;
+}
+
+.box{
+padding:28px;
+}
+
+.steam{
+display:none;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<h2>☕ Habidade</h2>
+<div>
+<a href="#about">About</a>
+<a href="#features">Features</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="box">
+
+<h1>Habidade Café</h1>
+
+<p>
+A peaceful urban café in Sector 104, Noida — where coffee,
+nature, comfort, and conversations come together beautifully.
+</p>
+
+<a class="btn" href="#about">Explore</a>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+
+<h2 class="title">Our Story</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌿 Urban Habitat</h3>
+<p>Relaxed café space designed with greenery and calm vibes.</p>
+</div>
+
+<div class="card">
+<h3>☕ Signature Coffee</h3>
+<p>Special blends, shrub coffee, and handcrafted beverages.</p>
+</div>
+
+<div class="card">
+<h3>🍽 Fresh Food</h3>
+<p>Grilled dishes, kombucha, and creative café cuisine.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+
+<h2 class="title">Why People Love It ❤️</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🌞 Natural Light</h3>
+<p>Open seating with sunlight and greenery.</p>
+</div>
+
+<div class="card">
+<h3>💻 Work Friendly</h3>
+<p>Quiet zones perfect for productivity.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Premium Service</h3>
+<p>Friendly staff and peaceful ambience.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+<h2 class="title">Visit Us</h2>
+
+<p>
+📍 Ground Floor, Yadhuvanshi Tower, Market, Hazipur,<br>
+Sector 104, Noida, Uttar Pradesh 201301
+</p>
+
+<p>📞 +91 87997 79389</p>
+<p>🕒 Open Daily • Closes at 11:30 PM</p>
+
+<br>
+
+<a class="btn"
+href="https://www.google.com/maps/dir/?api=1&destination=28.5746,77.3852"
+target="_blank">
+📍 Get Directions
+</a>
+
+</section>
+
+<footer>
+✨ Made with ❤️ for Habidade Café ✨
+</footer>
+
+</body>
+</html>
 animation:bgmove 40s linear infinite;
 opacity:.12;
 z-index:-2;
